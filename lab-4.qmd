@@ -1,6 +1,7 @@
 ---
 title: "Lab 4 - Potpourri"
 categories: "Lab"
+Author: "Aiden Mansfield"
 ---
 
 ```{r}
@@ -9,6 +10,7 @@ categories: "Lab"
 
 library(datasauRus)
 library(tidyverse)
+library(palmerpenguins)
 ```
 
 # Introduction
@@ -23,28 +25,27 @@ a.  Add each of strings below to the code chunk provided in your document, rende
 
     -   Chunk label 1:
 
-    ```         
-    #| label: a-label 
-    #| with-a-line-break
-    ```
+```{r a-label}
+1+1
+```
 
     -   Chunk label 2:
-
-    ```         
-    #| label: areaaaaaaaaaaaaaaaaaaaaaallllllllllllllllllyyyyylooooooooooooooooooonglabel 
-    ```
+    
+```{r areaaaaaaaaaaaaaaaaaaaaaallllllllllllllllllyyyyylooooooooooooooooooonglabel}
+1+1
+```
 
     -   Chunk label 3:
 
-    ```         
-    #| label: label with spaces
-    ```
+```{r label with spaces}
+1+1
+```
 
     -   Chunk label 4:
 
-    ```         
-    #| label: label-with-dashes
-    ```
+```{r label-with-dashes}
+1+1
+```
 
     ::: callout-tip
     Try each label option in the code chunk provided in your document. If it gives you an error (document doesn't render), you know it's not a proper chunk label.
@@ -52,22 +53,27 @@ a.  Add each of strings below to the code chunk provided in your document, rende
 
 b.  Which of the chunk label options above is the best option? Explain your reasoning in 1-2 sentences.
 
+I assume chunk label 3 was not supposed to render since there is spaces in the label but the assignment format has errors preventing me from reaching that conclusion.
+Chunk label 1 and 4 are best because they are simple and easy to understand. Chunk 2 lacks brevity.
+
 ## Question 2
 
 You have the following code chunk:
 
 ```{r}
-#| eval: false
-    
+#| eval: true
+#| echo: true
+#| warning: false
+data("penguins", package = "palmerpenguins")    
 ggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm)) + 
   geom_point()
 ```
 
 Add the following code chunk options, one at a time, and set each to `false` and then to `true`. After each value, render your document and observe its effect. Ultimately, choose the values that are the most appropriate for this code chunk. Based on the behaviors you observe, describe what each code chunk option does.
 
--   `echo`
--   `warning`
--   `eval`
+-   `echo`: displays or hides code in rendered document
+-   `warning`: displays or hides any warning produced by the code in the rendered document
+-   `eval`: runs code so plot is displayed in rendered document
 
 ## Question 3
 
